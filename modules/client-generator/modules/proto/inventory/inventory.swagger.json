@@ -1,0 +1,730 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "inventory Service",
+    "version": "v1",
+    "contact": {
+      "name": "Gemini Team",
+      "email": "info@gemini-commerce.com"
+    },
+    "license": {
+      "name": "Gemini fair use license",
+      "url": "https://gemini-commerce.com/api/fair-use-license"
+    }
+  },
+  "tags": [
+    {
+      "name": "Inventory",
+      "description": "inventory Description",
+      "externalDocs": {
+        "url": "https://gemini-commerce.com/api/inventory"
+      }
+    }
+  ],
+  "host": "inventory.api.gogemini.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/inventory.Inventory/AdjustQty": {
+      "post": {
+        "summary": "Adjust Quantity",
+        "description": "Increment or decrement the quantity",
+        "operationId": "AdjustQty",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryAdjustQtyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/AdjustQtyCommitted": {
+      "post": {
+        "summary": "Adjust Quantity Committed",
+        "description": "Increment or decrement the quantity committed",
+        "operationId": "AdjustQtyCommitted",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryAdjustQtyCommittedRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/CreateStockItem": {
+      "post": {
+        "summary": "Create Stock Item",
+        "operationId": "CreateStockItem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryCreateStockItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/GetQtySalable": {
+      "post": {
+        "summary": "Get Salable Quantity",
+        "operationId": "GetQtySalable",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryGetQtySalableResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryGetQtySalableRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/GetStockItem": {
+      "post": {
+        "summary": "Get Stock Item",
+        "operationId": "GetStockItem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryGetStockItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/ListStockItems": {
+      "post": {
+        "summary": "List Stock Items",
+        "operationId": "ListStockItems",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryListStockItemsResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryListStockItemsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/ListStockItemsBySkus": {
+      "post": {
+        "summary": "List Stock Items by SKUs",
+        "operationId": "ListStockItemsBySkus",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryListStockItemsBySkusResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryListStockItemsBySkusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/RebalanceStockQtys": {
+      "post": {
+        "summary": "Rebalance Stock Quantities",
+        "operationId": "RebalanceStockQtys",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryRebalanceStockQtysRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    },
+    "/inventory.Inventory/UpdateStockItem": {
+      "post": {
+        "summary": "Update Stock Item",
+        "operationId": "UpdateStockItem",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/inventoryStockItem"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/inventoryUpdateStockItemRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Inventory"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "UpdateStockItemRequestPayload": {
+      "type": "object",
+      "properties": {
+        "outOfStockThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyCommitted": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "inventoryAdjustQtyCommittedRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "qtyAdjust": {
+          "type": "integer",
+          "format": "int32",
+          "title": "delta value"
+        }
+      }
+    },
+    "inventoryAdjustQtyRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "qtyAdjust": {
+          "type": "integer",
+          "format": "int32",
+          "title": "delta value"
+        }
+      }
+    },
+    "inventoryCreateStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "outOfStockThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyCommitted": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "inventoryGetQtySalableRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        }
+      }
+    },
+    "inventoryGetQtySalableResponse": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "qtySalable": {
+          "type": "integer",
+          "format": "int32",
+          "title": "qty - qty_committed - out_of_stock_threshold"
+        }
+      }
+    },
+    "inventoryGetStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        }
+      }
+    },
+    "inventoryListStockItemsBySkusRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "skus": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "inventoryListStockItemsBySkusResponse": {
+      "type": "object",
+      "properties": {
+        "stockItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/inventoryStockItem"
+          }
+        }
+      }
+    },
+    "inventoryListStockItemsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum number of items to return."
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "The next_page_token value returned from a previous List request, if any."
+        }
+      }
+    },
+    "inventoryListStockItemsResponse": {
+      "type": "object",
+      "properties": {
+        "stockItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/inventoryStockItem"
+          }
+        },
+        "nextPageToken": {
+          "type": "string",
+          "description": "Token to retrieve the next page of results, or empty if there are no\nmore results in the list."
+        }
+      }
+    },
+    "inventoryRebalanceStockQtysRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "qtyCommitted": {
+          "type": "integer",
+          "format": "int32",
+          "title": "qty_committed to be applied to qty and old qty_committed"
+        }
+      }
+    },
+    "inventoryStockItem": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "outOfStockThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtyCommitted": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "qtySalable": {
+          "type": "integer",
+          "format": "int32",
+          "title": "qty - qty_committed - out_of_stock_threshold"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "inventoryUpdateStockItemRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sku": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/UpdateStockItemRequestPayload"
+        },
+        "payloadMask": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
+}
